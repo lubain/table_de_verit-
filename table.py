@@ -74,10 +74,10 @@ def extract_subformulas(formula): # c'est pour extraire dans une liste les terms
     if current_subformula: subformulas.add(current_subformula)
     return sorted(subformulas, key=len)
 
-def implique(a, b): return 1 if (a == 0 or (a == 1 and b == 1)) else 0
+def implique(a, b): return 0 if a == 1 and b == 0 else 1
 def etLogique(a, b): return a * b
-def ouLogique(a, b): return 1 if (a == 1 or b == 1) else 0
-def equivalance(a, b): return 1 if ((a == 1 and b == 1) or (a == 0 and b == 0)) else 0 
+def ouLogique(a, b): return 1 if a == 1 or b == 1 else 0
+def equivalance(a, b): return 1 if a == b else 0 
 
 # supposons qu'on a (p -> q), le but de cette fonction est d'extraire les variable a,b,r telque a = "p" et b = "q" et r = "->". l'extraction se fait par tour
 def find_abr(hyp, a = "", b = "", r = "", isA = True, isB = False): 
